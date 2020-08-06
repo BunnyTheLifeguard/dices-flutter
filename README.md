@@ -2,6 +2,10 @@
 
 A simple Flutter App for rolling dices. The learning objective of this exercise on the way to learning Flutter was to add functionality to a simple App by using setState() inside Stateful Flutter widgets.
 
+<div align="center">
+<img src="images/dices.png" width="50%">
+</div>
+
 ## Learning objectives:
 
 - Using Flutter stateless widgets to design the UI
