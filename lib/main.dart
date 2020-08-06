@@ -5,10 +5,10 @@ void main() {
   return runApp(
     MaterialApp(
       home: Scaffold(
-        backgroundColor: Colors.red,
+        backgroundColor: Colors.indigo[900],
         appBar: AppBar(
           title: Text('Dices'),
-          backgroundColor: Colors.red,
+          backgroundColor: Colors.indigo,
         ),
         body: DicePage(),
       ),
@@ -22,8 +22,15 @@ class DicePage extends StatefulWidget {
 }
 
 class _DicePageState extends State<DicePage> {
-  int leftDiceNr = 1;
   int rightDiceNr = 2;
+  int leftDiceNr = 4;
+
+  void rollDices() {
+    setState(() {
+      rightDiceNr = Random().nextInt(6) + 1;
+      leftDiceNr = Random().nextInt(6) + 1;
+    });
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -33,9 +40,7 @@ class _DicePageState extends State<DicePage> {
           Expanded(
             child: FlatButton(
               onPressed: () {
-                setState(() {
-                  leftDiceNr = Random().nextInt(6) + 1;
-                });
+                rollDices();
               },
               child: Image.asset('images/dice$leftDiceNr.png'),
             ),
@@ -44,7 +49,7 @@ class _DicePageState extends State<DicePage> {
             child: FlatButton(
               onPressed: () {
                 setState(() {
-                  rightDiceNr = Random().nextInt(6) + 1;
+                  rollDices();
                 });
               },
               child: Image.asset('images/dice$rightDiceNr.png'),
